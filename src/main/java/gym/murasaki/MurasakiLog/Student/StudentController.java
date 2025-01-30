@@ -1,4 +1,4 @@
-package gym.murasaki.MurasakiLog;
+package gym.murasaki.MurasakiLog.Users;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

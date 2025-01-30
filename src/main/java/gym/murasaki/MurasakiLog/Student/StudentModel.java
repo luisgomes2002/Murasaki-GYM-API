@@ -1,5 +1,6 @@
-package gym.murasaki.MurasakiLog;
+package gym.murasaki.MurasakiLog.Users;
 
+import gym.murasaki.MurasakiLog.TrainingPlan.TrainingPlainModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,7 @@ public class UserModel {
     private String name;
     private String email;
     private String password;
+    private List<TrainingPlainModel> workoutList;
 
     public UserModel() {
     }
