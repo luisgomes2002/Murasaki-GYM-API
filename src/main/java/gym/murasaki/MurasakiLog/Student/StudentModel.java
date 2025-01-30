@@ -1,50 +1,26 @@
-package gym.murasaki.MurasakiLog.Users;
+package gym.murasaki.MurasakiLog.Student;
 
-import gym.murasaki.MurasakiLog.TrainingPlan.TrainingPlainModel;
+import gym.murasaki.MurasakiLog.PersonalTrainer.PersonalTrainerMode;
+import gym.murasaki.MurasakiLog.TrainingPlan.TrainingPlanModel;
+import gym.murasaki.MurasakiLog.Users.UsersModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+import java.util.List;
 
 @Entity
-@Table(name = "tb_users")
-public class UserModel {
+@Table(name = "tb_students")
+@AllArgsConstructor
+@Data
+public class StudentModel extends UsersModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String email;
-    private String password;
-    private List<TrainingPlainModel> workoutList;
+    @ManyToMany
+    @JoinColumn(name = "personal_trainer_id")
+    private PersonalTrainerMode personalTrainerMode;
 
-    public UserModel() {
-    }
+    @ManyToMany(mappedBy = "studentModel") // Um estudante pode ter varias fichas de treino.
+    private List<TrainingPlanModel> trainingPlans;
 
-    public UserModel(String name, String email, String password) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
