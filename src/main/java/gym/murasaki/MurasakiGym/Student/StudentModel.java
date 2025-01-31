@@ -1,6 +1,6 @@
 package gym.murasaki.MurasakiLog.Student;
 
-import gym.murasaki.MurasakiLog.PersonalTrainer.PersonalTrainerMode;
+import gym.murasaki.MurasakiLog.PersonalTrainer.PersonalTrainerModel;
 import gym.murasaki.MurasakiLog.TrainingPlan.TrainingPlanModel;
 import gym.murasaki.MurasakiLog.Users.UsersModel;
 import jakarta.persistence.*;
@@ -16,10 +16,10 @@ import java.util.List;
 public class StudentModel extends UsersModel {
 
     @ManyToMany
-    @JoinColumn(name = "personal_trainer_id")
-    private PersonalTrainerMode personalTrainerMode;
+    @JoinTable(joinColumns = @JoinColumn(name = "personal_trainer_id"))
+    private List<PersonalTrainerModel> personalTrainers;
 
-    @ManyToMany(mappedBy = "studentModel") // Um estudante pode ter varias fichas de treino.
+    @ManyToMany(mappedBy = "students") // Um estudante pode ter varias fichas de treino.
     private List<TrainingPlanModel> trainingPlans;
 
 

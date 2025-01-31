@@ -14,8 +14,8 @@ import java.util.List;
 @Table(name = "tb_personal_trainers")
 @AllArgsConstructor
 @Data
-public class PersonalTrainerMode extends UsersModel {
+public class PersonalTrainerModel extends UsersModel {
 
-    @ManyToMany(mappedBy = "personalTrainerMode") // Um personal pode ter varios estudantes.
+    @ManyToMany(mappedBy = "personalTrainers") // Um personal pode ter varios estudantes.
     private List<StudentModel> students;
 }

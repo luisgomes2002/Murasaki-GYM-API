@@ -1,7 +1,7 @@
 package gym.murasaki.MurasakiLog.TrainingPlan;
 
 import gym.murasaki.MurasakiLog.Exercises.ExerciseModel;
-import gym.murasaki.MurasakiLog.PersonalTrainer.PersonalTrainerMode;
+import gym.murasaki.MurasakiLog.PersonalTrainer.PersonalTrainerModel;
 import gym.murasaki.MurasakiLog.Student.StudentModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,11 +20,11 @@ public class TrainingPlanModel {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
-        private PersonalTrainerMode personalTrainerMode;
+        private PersonalTrainerModel personalTrainer;
 
         @ManyToMany
-        @JoinColumn(name = "student_id")
-        private StudentModel studentModel;
+        @JoinTable(joinColumns = @JoinColumn(name = "student_id"))
+        private List<StudentModel> students;
 
         private Date today;
         private String goals;

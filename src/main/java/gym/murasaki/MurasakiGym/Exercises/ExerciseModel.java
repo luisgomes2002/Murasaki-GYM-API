@@ -8,8 +8,10 @@ import lombok.Data;
 public class ExerciseModel {
 
     private String name;
-    private String setsAndReps;
+    private int sets;
+    private int reps;
     private String weight;
     private String rest;
     private String note;
+
 }
