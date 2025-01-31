@@ -1,4 +1,4 @@
-package gym.murasaki.MurasakiLog.Users;
+package gym.murasaki.MurasakiGym.Users;
 
 import jakarta.persistence.*;
 

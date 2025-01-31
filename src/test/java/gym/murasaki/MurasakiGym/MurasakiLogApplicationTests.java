@@ -1,10 +1,10 @@
-package gym.murasaki.MurasakiLog;
+package gym.murasaki.MurasakiGym;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MurasakiLogApplicationTests {
+class MurasakiGymApplicationTests {
 
 	@Test
 	void contextLoads() {
